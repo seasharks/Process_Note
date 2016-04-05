@@ -44,6 +44,7 @@
             this.Threads = new System.Windows.Forms.Label();
             this.current_processes_title = new System.Windows.Forms.Label();
             this.selected_process_command = new System.Windows.Forms.Label();
+            this.alwaysOnTop_checkBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // process_listbox
@@ -190,11 +191,23 @@
             this.selected_process_command.TabIndex = 17;
             this.selected_process_command.Text = "no process selected";
             // 
+            // alwaysOnTop_checkBox
+            // 
+            this.alwaysOnTop_checkBox.AutoSize = true;
+            this.alwaysOnTop_checkBox.Location = new System.Drawing.Point(15, 459);
+            this.alwaysOnTop_checkBox.Name = "alwaysOnTop_checkBox";
+            this.alwaysOnTop_checkBox.Size = new System.Drawing.Size(98, 17);
+            this.alwaysOnTop_checkBox.TabIndex = 18;
+            this.alwaysOnTop_checkBox.Text = "Always On Top";
+            this.alwaysOnTop_checkBox.UseVisualStyleBackColor = true;
+            this.alwaysOnTop_checkBox.CheckedChanged += new System.EventHandler(this.alwaysOnTop_checkBox_CheckedChanged);
+            // 
             // process_manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(637, 467);
+            this.ClientSize = new System.Drawing.Size(637, 488);
+            this.Controls.Add(this.alwaysOnTop_checkBox);
             this.Controls.Add(this.selected_process_command);
             this.Controls.Add(this.current_processes_title);
             this.Controls.Add(this.Threads);
@@ -236,6 +249,7 @@
         private System.Windows.Forms.Label Threads;
         private System.Windows.Forms.Label current_processes_title;
         private System.Windows.Forms.Label selected_process_command;
+        private System.Windows.Forms.CheckBox alwaysOnTop_checkBox;
     }
 }
 
