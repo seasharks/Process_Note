@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Process_Note
 {
-    public partial class Form1 : Form
+    public partial class process_manager : Form
     {
-        public Form1()
+        public process_manager()
         {
             InitializeComponent();
+        }
+
+        private void process_listbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void save_button_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
