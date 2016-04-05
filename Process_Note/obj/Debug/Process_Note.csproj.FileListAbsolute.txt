@@ -9,3 +9,11 @@ C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.Properties.Reso
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.exe
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.pdb
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\bin\Debug\Process_Note.exe
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\bin\Debug\Process_Note.pdb
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.csprojResolveAssemblyReference.cache
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.process_manager.resources
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.Properties.Resources.resources
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.exe
+C:\Users\Skoda Andras\Documents\Visual Studio 2015\Projects\Process_Note\Process_Note\obj\Debug\Process_Note.pdb
