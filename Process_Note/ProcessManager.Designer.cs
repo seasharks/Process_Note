@@ -135,6 +135,8 @@
             this.process_note_textbox.Size = new System.Drawing.Size(208, 20);
             this.process_note_textbox.TabIndex = 11;
             this.process_note_textbox.Text = "Enter comment here!";
+            this.process_note_textbox.Enter += new System.EventHandler(this.enter_process_note_textbox);
+            this.process_note_textbox.Leave += new System.EventHandler(this.leave_process_note_textbox);
             // 
             // selected_process_note_title
             // 
@@ -187,9 +189,9 @@
             this.selected_process_command.AutoSize = true;
             this.selected_process_command.Location = new System.Drawing.Point(12, 390);
             this.selected_process_command.Name = "selected_process_command";
-            this.selected_process_command.Size = new System.Drawing.Size(102, 13);
+            this.selected_process_command.Size = new System.Drawing.Size(148, 13);
             this.selected_process_command.TabIndex = 17;
-            this.selected_process_command.Text = "no process selected";
+            this.selected_process_command.Text = "Note has not been added yet.";
             // 
             // alwaysOnTop_checkBox
             // 

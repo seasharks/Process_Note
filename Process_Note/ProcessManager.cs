@@ -32,7 +32,17 @@ namespace Process_Note
         {
             if (processNotes.ContainsKey(process.Id))
                 selected_process_command.Text = processNotes[process.Id];
-            else selected_process_command.Text = "no process selected";
+            else selected_process_command.Text = "Note has not been added yet.";
+        }
+
+        private void enter_process_note_textbox(object sender, EventArgs e)
+        {
+            process_note_textbox.Text = "";
+        }
+
+        private void leave_process_note_textbox(object sender, EventArgs e)
+        {
+            process_note_textbox.Text = "Enter comment here!";
         }
 
         private void save_button_Click(object sender, EventArgs e)
