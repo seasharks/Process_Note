@@ -16,7 +16,7 @@ namespace Process_Note
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new process_manager());
+            Application.Run(new ProcessManager());
         }
     }
 }

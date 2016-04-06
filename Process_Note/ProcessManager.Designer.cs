@@ -1,6 +1,6 @@
 ﻿namespace Process_Note
 {
-    partial class process_manager
+    partial class ProcessManager
     {
         /// <summary>
         /// Required designer variable.
@@ -204,7 +204,7 @@
             this.alwaysOnTop_checkBox.UseVisualStyleBackColor = true;
             this.alwaysOnTop_checkBox.CheckedChanged += new System.EventHandler(this.alwaysOnTop_checkBox_CheckedChanged);
             // 
-            // process_manager
+            // ProcessManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -226,7 +226,7 @@
             this.Controls.Add(this.memory_usage_title);
             this.Controls.Add(this.cpu_usage_title);
             this.Controls.Add(this.process_listbox);
-            this.Name = "process_manager";
+            this.Name = "ProcessManager";
             this.Text = "Process Manager";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.process_manager_FormClosing);
             this.ResumeLayout(false);

@@ -12,58 +12,58 @@ using System.Windows.Forms;
 
 namespace Process_Note
 {
-    public partial class process_manager : Form
+    public partial class ProcessManager : Form
     {
-        Dictionary<int, string> processNotes = new Dictionary<int, string>();
+        readonly Dictionary<int, string> _processNotes = new Dictionary<int, string>();
 
-        public process_manager()
+        public ProcessManager()
         {
             InitializeComponent();
-            loadProcesses();
+            LoadProcesses();
         }
 
         private void process_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Process process = getSelectedProcess();
-            process_note_textbox.Text = "Enter comment here!";
-            showThreads(process);
-            showNote(process);
-            showUsage(process);
-            showStartTime(process);
-            showRunningTime(process);
+            Process process = GetSelectedProcess();
+            process_note_textbox.Text = @"Enter comment here!";
+            ShowThreads(process);
+            ShowNote(process);
+            ShowUsage(process);
+            ShowStartTime(process);
+            ShowRunningTime(process);
         }
 
-        private void showNote(Process process)
+        private void ShowNote(Process process)
         {
-            if (processNotes.ContainsKey(process.Id))
-                selected_process_command.Text = processNotes[process.Id];
-            else selected_process_command.Text = "Note has not been added yet.";
+            if (_processNotes.ContainsKey(process.Id))
+                selected_process_command.Text = _processNotes[process.Id];
+            else selected_process_command.Text = @"Note has not been added yet.";
         }
 
         private void enter_process_note_textbox(object sender, EventArgs e)
         {
-            if (process_note_textbox.Text == "Enter comment here!")
+            if (process_note_textbox.Text == @"Enter comment here!")
                 process_note_textbox.Text = "";
         }
 
         private void leave_process_note_textbox(object sender, EventArgs e)
         {
             if (process_note_textbox.Text == "")
-                process_note_textbox.Text = "Enter comment here!";
+                process_note_textbox.Text = @"Enter comment here!";
         }
 
         private void save_button_Click(object sender, EventArgs e)
         {
-            Process process = getSelectedProcess();
+            Process process = GetSelectedProcess();
             string noteText = process_note_textbox.Text;
-            if (processNotes.ContainsKey(process.Id))
-                processNotes[process.Id] = noteText;
-            else processNotes.Add(process.Id, noteText);
+            if (_processNotes.ContainsKey(process.Id))
+                _processNotes[process.Id] = noteText;
+            else _processNotes.Add(process.Id, noteText);
             selected_process_command.Text = noteText;
-            process_note_textbox.Text = "Enter comment here!";
+            process_note_textbox.Text = @"Enter comment here!";
         }
 
-        private void loadProcesses()
+        private void LoadProcesses()
         {
             process_listbox.Items.Clear();
             Process[] processes = Process.GetProcesses();
@@ -76,28 +76,28 @@ namespace Process_Note
             process_listbox.SetSelected(0, true);
         }
 
-        private int getProcessId()
+        private int GetProcessId()
         {
             string processData = process_listbox.SelectedItem.ToString();
-            return Int32.Parse(processData.Substring(0, processData.IndexOf("\t")));
+            return Int32.Parse(processData.Substring(0, processData.IndexOf("\t", StringComparison.Ordinal)));
         }
 
-        private Process getSelectedProcess()
+        private Process GetSelectedProcess()
         {
-            int processId = getProcessId();
+            int processId = GetProcessId();
             try
             {
                 return Process.GetProcessById(processId);
             }
             catch
             {
-                loadProcesses();
-                processId = getProcessId();
+                LoadProcesses();
+                processId = GetProcessId();
                 return Process.GetProcessById(processId);
             }
         }
 
-        private void showThreads(Process process)
+        private void ShowThreads(Process process)
         {
             threads_listbox.Items.Clear();
             foreach (ProcessThread thread in process.Threads)
@@ -106,25 +106,25 @@ namespace Process_Note
             }
         }
 
-        private void showUsage(Process process)
+        private void ShowUsage(Process process)
         {
-            PerformanceCounter process_cpu = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
-            process_cpu.NextValue();
+            PerformanceCounter processCpu = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
+            processCpu.NextValue();
             Thread.Sleep(500);
-            double process_cpu_usage = process_cpu.NextValue() / Environment.ProcessorCount;
-            cpu_usage.Text = $"{process_cpu_usage:F2} %";
+            double processCpuUsage = processCpu.NextValue() / Environment.ProcessorCount;
+            cpu_usage.Text = $"{processCpuUsage:F2} %";
             double memoryU = (double)process.WorkingSet64 / 1000000;
             memory_usage.Text = $"{memoryU:F2} MB";
         }
 
-        private void showStartTime(Process process)
+        private void ShowStartTime(Process process)
         {
             DateTime selectedProcessStartTimeRaw = process.StartTime;
             string selectedProcessStartTime = selectedProcessStartTimeRaw.ToString("yyyy-MM-dd HH:mm:ss");
             start_time.Text = selectedProcessStartTime;
         }
 
-        private void showRunningTime(Process process)
+        private void ShowRunningTime(Process process)
         {
             DateTime dateNow = DateTime.Now;
             DateTime selectedProcessStartTimeRaw = process.StartTime;
@@ -148,10 +148,10 @@ namespace Process_Note
 
         private void process_manager_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (processNotes.Count > 0)
+            if (_processNotes.Count > 0)
             {
-                DialogResult dialog = MessageBox.Show("Your notes will not be saved. Do you proceed to exit?",
-                "Exit", MessageBoxButtons.YesNo);
+                DialogResult dialog = MessageBox.Show(@"Your notes will not be saved. Do you proceed to exit?",
+                @"Exit", MessageBoxButtons.YesNo);
 
                 if (dialog == DialogResult.No)
                 {
