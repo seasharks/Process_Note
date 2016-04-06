@@ -50,11 +50,10 @@ namespace Process_Note
 
         private void showThreads(Process process)
         {
-
+            threads_listbox.Items.Clear();
             foreach (ProcessThread thread in process.Threads)
-            {
-                if (thread.ToString() != null)
-                    threads_listbox.Items.Add(thread.ToString());
+            { 
+                    threads_listbox.Items.Add(thread.Id.ToString());
             }
         }
 
