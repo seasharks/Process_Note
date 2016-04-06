@@ -21,7 +21,8 @@ namespace Process_Note
 
         private void process_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //showThreads(getSelectedProcess());
+            Process process = getSelectedProcess();
+            showThreads(process);
         }
 
         private void save_button_Click(object sender, EventArgs e)
@@ -47,15 +48,15 @@ namespace Process_Note
             return Process.GetProcessById(processId);
         }
 
-        //private void showThreads(Process process)
-        //{
+        private void showThreads(Process process)
+        {
 
-        //    foreach (System.Diagnostics.ProcessThread thread in process.Threads)
-        //    {
-        //        if (thread.ToString() != null)
-        //            threads_listbox.Items.Add(thread.ToString());
-        //    }
-        //}
+            foreach (ProcessThread thread in process.Threads)
+            {
+                if (thread.ToString() != null)
+                    threads_listbox.Items.Add(thread.ToString());
+            }
+        }
 
         private void alwaysOnTop_checkBox_CheckedChanged(object sender, EventArgs e)
         {
