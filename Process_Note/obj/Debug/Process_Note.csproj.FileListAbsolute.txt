@@ -9,3 +9,12 @@ C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.Properties.Reso
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.exe
 C:\Workspace\C#\Process_Note\Process_Note\obj\Debug\Process_Note.pdb
+C:\DEV\C#\seasharks\Process_Note\bin\Debug\Process_Note.exe.config
+C:\DEV\C#\seasharks\Process_Note\bin\Debug\Process_Note.exe
+C:\DEV\C#\seasharks\Process_Note\bin\Debug\Process_Note.pdb
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.csprojResolveAssemblyReference.cache
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.process_manager.resources
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.Properties.Resources.resources
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.exe
+C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.pdb
