@@ -228,6 +228,7 @@
             this.Controls.Add(this.process_listbox);
             this.Name = "process_manager";
             this.Text = "Process Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.process_manager_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
