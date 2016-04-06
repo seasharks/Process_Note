@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,6 +27,7 @@ namespace Process_Note
             Process process = getSelectedProcess();
             showThreads(process);
             showNote(process);
+            showUsage(process);
         }
 
         private void showNote(Process process)
@@ -81,6 +83,17 @@ namespace Process_Note
             { 
                     threads_listbox.Items.Add(thread.Id.ToString());
             }
+        }
+
+        private void showUsage(Process process)
+        {
+            PerformanceCounter process_cpu = new PerformanceCounter("Process", "% Processor Time", process.ProcessName);
+            process_cpu.NextValue();
+            Thread.Sleep(500);
+            double process_cpu_usage = process_cpu.NextValue() / Environment.ProcessorCount;
+            cpu_usage.Text = $"{process_cpu_usage:F2} %";
+            double memoryU = (double)process.WorkingSet64 / 1000000;
+            memory_usage.Text = $"{memoryU:F2} MB";
         }
 
         private void alwaysOnTop_checkBox_CheckedChanged(object sender, EventArgs e)
