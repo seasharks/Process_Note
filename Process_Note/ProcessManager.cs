@@ -119,16 +119,19 @@ namespace Process_Note
 
         private void showStartTime(Process process)
         {
-            DateTime selectedProcessStartTime = process.StartTime;
-            start_time.Text = selectedProcessStartTime.ToString();
+            DateTime selectedProcessStartTimeRaw = process.StartTime;
+            string selectedProcessStartTime = selectedProcessStartTimeRaw.ToString("yyyy-MM-dd HH:mm:ss");
+            start_time.Text = selectedProcessStartTime;
         }
-        
+
         private void showRunningTime(Process process)
         {
             DateTime dateNow = DateTime.Now;
-            DateTime selectedProcessStartTime = process.StartTime;
-            TimeSpan runningTime = dateNow.Subtract(selectedProcessStartTime);
-            running_time.Text = runningTime.ToString();
+            DateTime selectedProcessStartTimeRaw = process.StartTime;
+            TimeSpan runningTimeRaw = dateNow.Subtract(selectedProcessStartTimeRaw);
+            string runningTime = runningTimeRaw.ToString("%d") + " day(s) "
+                                 + runningTimeRaw.ToString(@"hh\:mm\:ss");
+            running_time.Text = runningTime;
         }
 
         private void alwaysOnTop_checkBox_CheckedChanged(object sender, EventArgs e)
