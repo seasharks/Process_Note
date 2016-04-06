@@ -13,6 +13,8 @@ namespace Process_Note
 {
     public partial class process_manager : Form
     {
+        Dictionary<int, string> processNotes = new Dictionary<int, string>();
+
         public process_manager()
         {
             InitializeComponent();
@@ -27,7 +29,13 @@ namespace Process_Note
 
         private void save_button_Click(object sender, EventArgs e)
         {
-
+            Process process = getSelectedProcess();
+            string noteText = process_note_textbox.Text;
+            if (processNotes.ContainsKey(process.Id))
+                processNotes[process.Id] = noteText;
+            else processNotes.Add(process.Id, noteText);
+            selected_process_command.Text = noteText;
+            process_note_textbox.Text = "Enter comment here!";
         }
 
         private void loadProcesses()

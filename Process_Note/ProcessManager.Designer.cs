@@ -37,7 +37,7 @@
             this.memory_usage = new System.Windows.Forms.Label();
             this.running_time = new System.Windows.Forms.Label();
             this.start_time = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.process_note_textbox = new System.Windows.Forms.TextBox();
             this.selected_process_note_title = new System.Windows.Forms.Label();
             this.save_button = new System.Windows.Forms.Button();
             this.threads_listbox = new System.Windows.Forms.ListBox();
@@ -128,13 +128,13 @@
             this.start_time.TabIndex = 8;
             this.start_time.Text = "no process selected";
             // 
-            // textBox1
+            // process_note_textbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 420);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 20);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.Text = "Enter comment here!";
+            this.process_note_textbox.Location = new System.Drawing.Point(15, 420);
+            this.process_note_textbox.Name = "process_note_textbox";
+            this.process_note_textbox.Size = new System.Drawing.Size(208, 20);
+            this.process_note_textbox.TabIndex = 11;
+            this.process_note_textbox.Text = "Enter comment here!";
             // 
             // selected_process_note_title
             // 
@@ -214,7 +214,7 @@
             this.Controls.Add(this.threads_listbox);
             this.Controls.Add(this.save_button);
             this.Controls.Add(this.selected_process_note_title);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.process_note_textbox);
             this.Controls.Add(this.start_time);
             this.Controls.Add(this.running_time);
             this.Controls.Add(this.memory_usage);
@@ -242,7 +242,7 @@
         private System.Windows.Forms.Label memory_usage;
         private System.Windows.Forms.Label running_time;
         private System.Windows.Forms.Label start_time;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox process_note_textbox;
         private System.Windows.Forms.Label selected_process_note_title;
         private System.Windows.Forms.Button save_button;
         private System.Windows.Forms.ListBox threads_listbox;

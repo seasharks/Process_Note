@@ -18,3 +18,12 @@ C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.Properties.Resources.res
 C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
 C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.exe
 C:\DEV\C#\seasharks\Process_Note\obj\Debug\Process_Note.pdb
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\bin\Debug\Process_Note.exe.config
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\bin\Debug\Process_Note.exe
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\bin\Debug\Process_Note.pdb
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.csprojResolveAssemblyReference.cache
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.process_manager.resources
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.Properties.Resources.resources
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.csproj.GenerateResource.Cache
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.exe
+C:\Users\Slezak Attila\Source\Repos\Process_Note2\Process_Note\obj\Debug\Process_Note.pdb
