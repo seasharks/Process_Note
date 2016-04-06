@@ -25,9 +25,12 @@ namespace Process_Note
         private void process_listbox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Process process = getSelectedProcess();
+            process_note_textbox.Text = "Enter comment here!";
             showThreads(process);
             showNote(process);
             showUsage(process);
+            showStartTime(process);
+            showRunningTime(process);
         }
 
         private void showNote(Process process)
@@ -39,7 +42,8 @@ namespace Process_Note
 
         private void enter_process_note_textbox(object sender, EventArgs e)
         {
-            process_note_textbox.Text = "";
+            if (process_note_textbox.Text == "Enter comment here!")
+                process_note_textbox.Text = "";
         }
 
         private void leave_process_note_textbox(object sender, EventArgs e)
@@ -61,6 +65,7 @@ namespace Process_Note
 
         private void loadProcesses()
         {
+            process_listbox.Items.Clear();
             Process[] processes = Process.GetProcesses();
 
             foreach (Process process in processes)
@@ -68,13 +73,28 @@ namespace Process_Note
                 if (process.ProcessName != "Idle")
                     process_listbox.Items.Add(process.Id + "\t" + process.ProcessName);
             }
+            process_listbox.SetSelected(0, true);
+        }
+
+        private int getProcessId()
+        {
+            string processData = process_listbox.SelectedItem.ToString();
+            return Int32.Parse(processData.Substring(0, processData.IndexOf("\t")));
         }
 
         private Process getSelectedProcess()
         {
-            string processData = process_listbox.SelectedItem.ToString();
-            int processId = Int32.Parse(processData.Substring(0, processData.IndexOf("\t")));
-            return Process.GetProcessById(processId);
+            int processId = getProcessId();
+            try
+            {
+                return Process.GetProcessById(processId);
+            }
+            catch
+            {
+                loadProcesses();
+                processId = getProcessId();
+                return Process.GetProcessById(processId);
+            }
         }
 
         private void showThreads(Process process)
@@ -97,6 +117,20 @@ namespace Process_Note
             memory_usage.Text = $"{memoryU:F2} MB";
         }
 
+        private void showStartTime(Process process)
+        {
+            DateTime selectedProcessStartTime = process.StartTime;
+            start_time.Text = selectedProcessStartTime.ToString();
+        }
+        
+        private void showRunningTime(Process process)
+        {
+            DateTime dateNow = DateTime.Now;
+            DateTime selectedProcessStartTime = process.StartTime;
+            TimeSpan runningTime = dateNow.Subtract(selectedProcessStartTime);
+            running_time.Text = runningTime.ToString();
+        }
+
         private void alwaysOnTop_checkBox_CheckedChanged(object sender, EventArgs e)
         {
             if (this.TopMost)
@@ -116,11 +150,7 @@ namespace Process_Note
                 DialogResult dialog = MessageBox.Show("Your notes will not be saved. Do you proceed to exit?",
                 "Exit", MessageBoxButtons.YesNo);
 
-                if (dialog == DialogResult.Yes)
-                {
-                    Application.Exit();
-                }
-                else if (dialog == DialogResult.No)
+                if (dialog == DialogResult.No)
                 {
                     e.Cancel = true;
                 }
