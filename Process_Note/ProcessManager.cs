@@ -59,9 +59,13 @@ namespace Process_Note
 
         private void alwaysOnTop_checkBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (alwaysOnTop_checkBox.Checked)
+            if (this.TopMost)
             {
-                
+                this.TopMost = false;
+            }
+            else
+            {
+                this.TopMost = true;
             }
         }
     }
