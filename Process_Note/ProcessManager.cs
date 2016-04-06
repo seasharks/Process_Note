@@ -42,7 +42,8 @@ namespace Process_Note
 
         private void leave_process_note_textbox(object sender, EventArgs e)
         {
-            process_note_textbox.Text = "Enter comment here!";
+            if (process_note_textbox.Text == "")
+                process_note_textbox.Text = "Enter comment here!";
         }
 
         private void save_button_Click(object sender, EventArgs e)
@@ -92,6 +93,24 @@ namespace Process_Note
             else
             {
                 this.TopMost = true;
+            }
+        }
+
+        private void process_manager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (processNotes.Count > 0)
+            {
+                DialogResult dialog = MessageBox.Show("Your notes will not be saved. Do you proceed to exit?",
+                "Exit", MessageBoxButtons.YesNo);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+                else if (dialog == DialogResult.No)
+                {
+                    e.Cancel = true;
+                }
             }
         }
     }
