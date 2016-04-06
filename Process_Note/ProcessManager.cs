@@ -25,6 +25,14 @@ namespace Process_Note
         {
             Process process = getSelectedProcess();
             showThreads(process);
+            showNote(process);
+        }
+
+        private void showNote(Process process)
+        {
+            if (processNotes.ContainsKey(process.Id))
+                selected_process_command.Text = processNotes[process.Id];
+            else selected_process_command.Text = "no process selected";
         }
 
         private void save_button_Click(object sender, EventArgs e)
